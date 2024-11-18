@@ -12,7 +12,8 @@
   "host_permissions": [
     "*://*.moviedrive.hu/*",
     "*://*.videa.hu/player*",
-    "*://vk.com/video_ext.php?*"
+    "*://vk.com/video_ext.php?*",
+    "*://ebd.cda.pl/*"
   ],
   "web_accessible_resources": [
     {
@@ -32,6 +33,12 @@
       "js": ["helper/forParsers.js","parsers/vk.js"],
       "all_frames": true,
       "run_at": "document_start"
-  }
+    },
+    {
+      "matches": ["*://ebd.cda.pl/*"],
+      "js": ["helper/forParsers.js","parsers/cda.js"],
+      "all_frames": true,
+      "run_at": "document_start"
+    }
   ]
 }
