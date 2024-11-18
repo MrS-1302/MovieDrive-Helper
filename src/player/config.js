@@ -4,7 +4,6 @@ setTimeout(() => {
 
     //document.addEventListener('DOMContentLoaded', async () => {
         //clearInterval(interval);
-        console.log('EZ IS LEFUTOTT')
     var playerOptions = {
         settings: [
             'quality',
