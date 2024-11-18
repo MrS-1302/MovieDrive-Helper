@@ -1,0 +1,297 @@
+.plyr--stopped.plyr__poster-enabled .plyr__poster {
+    opacity: 0;
+}
+
+.plyr__video-wrapper .poster {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    background-size: contain;
+    z-index: 0;
+}
+
+.plyr--stopped .plyr__video-wrapper .poster {
+    display: block !important;
+}
+
+.osiris_poster_hidden {
+    display: none !important;
+}
+
+.osiris_poser_shown {
+    filter: opacity(0%);
+    display: block !important;
+}
+
+table,
+th,
+td {
+    border: 0px;
+    border-collapse: collapse;
+}
+
+.osiris_layer {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.osiris_poster_container {
+    width: 40%;
+    left: 25%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    /* background: rgba(102, 16, 242, .8); */
+    color: white;
+    text-align: left;
+}
+
+.osiris_poster_title p {
+    color: rgba(255, 255, 255, .8);
+}
+
+.osiris_poster_title h2 {
+    font-weight: bold;
+}
+
+.osiris_poster_title {
+    line-height: 1;
+}
+
+.osiris_poster_desc {
+    margin-top: 30px;
+}
+
+/* .osiris_jumpintro_hidden {
+    display: none;
+}
+
+.osiris_jumpintro_shown {
+    display: block;
+    z-index: 3;
+    position: absolute;
+    right: 0;
+    bottom: 15%;
+} */
+
+.poster {
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+}
+
+.osiris_jumpintro_btn {
+    cursor: pointer;
+    transition: 0.5s;
+    border: 2px solid #fff;
+    border-right: 0;
+    border-radius: 6px 0 0 6px;;
+    padding: 10px 30px;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    background-color: rgba(0,0,0,0.5);
+	display: inline-block;
+}
+
+.osiris_jumpintro {
+    display: block;
+	z-index: 3;
+    position: absolute;
+    right: 0;
+    bottom: 15%;
+	pointer-events: auto;
+	
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.osiris_jumpintro_btn:hover {
+    background-color: #fff;
+    color: #1c1c1c;
+    border-color: #fff;
+	display: inline-block !important;
+}
+
+.osiris_backtobrowsing {
+    left: 5%;
+    position: absolute;
+    top: 5%;
+    z-index: 1;
+    width: 225px;
+}
+
+.osiris_backtobrowsing_btn {
+    left: 0;
+    position: absolute;
+    display: inline-block;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 100%;
+    background: transparent;
+    transition: 0.3s;
+}
+
+.osiris_backtobrowsing_btn:hover {
+    background: transparent;
+    border-radius: 0;
+}
+
+.osiris_backtobrowsing_btn svg {
+    box-sizing: content-box;
+    display: block;
+    height: 46px;
+    width: 46px;
+    padding: 15px;
+    transition: 0.3s;
+}
+
+.osiris_backtobrowsing_btn:hover svg {
+    display: block;
+    height: 50px;
+    width: 50px;
+}
+
+.osiris_backtobrowsing_popup {
+    display: none;
+    background: transparent;
+    width: 225px;
+    color: white;
+    right: 0;
+}
+
+.osiris_backtobrowsing_btn:hover .osiris_backtobrowsing_popup {
+    display: block;
+}
+
+#osiris_back {
+    fill: white;
+}
+
+.osiris_playlist_btn img {
+    width: 18px;
+    height: 18px;
+}
+
+.playlist_container {
+    height: 0%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background-color: rgb(31, 31, 31);
+    z-index: 9999;
+    position: absolute;
+}
+
+.osiris_show {
+    display: block !important;
+}
+
+.playlist_series_container {
+    width: 95%;
+    height: 50px;
+    top: 0;
+    display: none;
+}
+
+.playlist_episode_container {
+    width: 100%;
+    top: 50px;
+    bottom: 0;
+    height: 100%;
+    display: none;
+}
+
+.osiris_playlist_exit {
+    margin-left: 95%;
+    top: 0;
+    position: absolute;
+}
+
+.ad_logo {
+    display: block;
+    z-index: 3;
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    text-align: left;
+}
+
+.ad_logo p {
+    margin: 0;
+    color: rgba(255, 255, 255, .5);
+}
+
+.ad_logo h2 {
+    color: rgba(255, 255, 255, .7);
+    margin: 0;
+    font-weight: bold;
+}
+
+.ad_logo h2:hover {
+    color: rgb(255, 255, 255);
+}
+
+.nextepcountdown {
+    top: 55%;
+    color: #fff;
+    z-index: 999;
+    position: absolute;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+.nextepcountdown p {
+    border-bottom: 2px solid #fff;
+    max-width: 300px;
+    margin: auto;
+}
+
+.downloads {
+    display: none;
+    flex-direction: column;
+    width: fit-content;
+    position: fixed;
+    right: 10px;
+    bottom: 51px;
+    background-color: rgba(255, 255, 255, .9);
+    border-radius: 4px;
+    font-size: 13px;
+    text-align: left;
+    color: #4a5764;
+    z-index: 3;
+	padding: 0px 0px;
+}
+
+.ketelem::after {
+	border: 4px solid transparent;
+    border-top-color: rgba(255, 255, 255, .9);
+    content: '';
+    height: 0;
+    position: absolute;
+    left: 23.5px;
+    top: 100%;
+    width: 0;
+}
+
+.haromelem::after {
+	border: 4px solid transparent;
+    border-top-color: rgba(255, 255, 255, .9);
+    content: '';
+    height: 0;
+    position: absolute;
+    left: 33px;
+    top: 100%;
+    width: 0;
+}

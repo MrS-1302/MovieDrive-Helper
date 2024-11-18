@@ -1,0 +1,30 @@
+{
+  "name": "MovieDrive Helper",
+  "description": "Próbáltam használni az oldalt de egy szar az egész.. Bocsi Black :D ",
+  "manifest_version": 3,
+  "version": "0.0.1",
+  "author": "Mr.S",
+  "permissions": [
+    "storage",
+    "contextMenus",
+    "downloads"
+  ],
+  "host_permissions": [
+    "*://*.moviedrive.hu/*",
+    "*://*.videa.hu/player*"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["player/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_scripts": [
+    {
+        "matches": ["*://*.videa.hu/player?*"],
+        "js": ["parsers/videa.js"],
+        "all_frames": true,
+        "run_at": "document_start"
+    }
+  ]
+}
