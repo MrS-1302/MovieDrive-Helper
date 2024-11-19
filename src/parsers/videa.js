@@ -1,4 +1,4 @@
-function getQualityDataV2() {
+function getDatas() {
     return new Promise((resolve) => {
         const versionSelectors = document.querySelectorAll('.settings-version-selector-block.settings-submenu .submenu-item');
         const linksArray = [];
@@ -11,7 +11,8 @@ function getQualityDataV2() {
             });
             szam += 1;
             if (versionSelectors.length === linksArray.length) {
-                resolve(linksArray);
+                const poster = "https://"+document.querySelector('.startscreen-container').style.backgroundImage.slice(7,-2);
+                resolve({poster:poster,qualitys:linksArray});
             } else {
                 versionSelectors[szam].click();
             }
@@ -28,10 +29,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         let interval = setInterval( async function () {
             if (document.querySelectorAll('#videa-toolbar > div.settings-panel > div.settings-version-selector-block.settings-submenu > div > a').length > 0) {
                 clearInterval(interval);
-                const qualitys = await getQualityDataV2()
-                const poster = "https://"+document.querySelector('.startscreen-container').style.backgroundImage.slice(7,-2);
-
-                createPlayer({poster:poster, qualitys: qualitys})
+                createPlayer(await getDatas());
             }
         },10);
     }

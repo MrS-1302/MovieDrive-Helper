@@ -8,18 +8,13 @@ function getDatas() {
             if (h_params.params[0][h_potentialResolution]) h_resolutions.push({res: parseInt(h_potentialResolution.match(/\d+/g)[0]), link: h_params.params[0][h_potentialResolution]});
         }
         const h_image = h_params.params[0]['jpg'];
-        resolve([h_image,h_resolutions]);
+        resolve({poster:h_image,qualitys:h_resolutions});
     });
 }
 
 document.addEventListener('DOMContentLoaded', async function () {
     if (document.referrer != '' && document.referrer.split("//")[1].split("/")[0] == hostDomain) {
         createLoadingScreen();
-        
-        const datas = await getDatas();
-        const poster = datas[0];
-        const qualitys = datas[1];
-
-        createPlayer({poster:poster, qualitys: qualitys})
+        createPlayer(await getDatas())
     }
 });

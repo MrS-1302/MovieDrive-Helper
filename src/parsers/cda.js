@@ -19,7 +19,7 @@ function getDatas() {
         }
 
         const image = playerDatas.video.thumb;
-        resolve([image,resolutions]);
+        resolve({poster:image,qualitys:resolutions});
     });
 }
 
@@ -27,11 +27,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     if (document.referrer != '' && document.referrer.split("//")[1].split("/")[0] == hostDomain) {
         document.querySelector(".button-players").remove();
         createLoadingScreen();
-        
-        const datas = await getDatas();
-        const poster = datas[0];
-        const qualitys = datas[1];
-
-        createPlayer({poster:poster, qualitys: qualitys})
+        createPlayer(await getDatas());
     }
 });
