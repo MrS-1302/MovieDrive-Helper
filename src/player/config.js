@@ -87,7 +87,8 @@ setTimeout(() => {
                 720: 'HD',
                 480: 'SD',
                 360: 'SD',
-                240: 'SD'
+                240: 'SD',
+                144: 'SD'
             },
             quality: {
                 default: '1080'
@@ -112,7 +113,7 @@ setTimeout(() => {
     };
     var poster=localStorage.getItem("helper_p");
 
-    const player = new Plyr(video, playerOptions);
+    const player = new helper_Plyr(video, playerOptions);
 
     player.source = {
         type: 'video',

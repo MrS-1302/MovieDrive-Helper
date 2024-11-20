@@ -32,12 +32,29 @@ async function createPlayer({poster, qualitys}) {
     document.write(customHtml);
     document.close();
     addLocalFilesForPlayer('js', 'jquery.min');
-    addLocalFilesForPlayer('js', 'plyr');
+    addLocalFilesForPlayer('js', 'helper_plyr');
     addLocalFilesForPlayer('css', 'player2');
     addLocalFilesForPlayer('css', 'adplyrfull.v2');
     addLocalFilesForPlayer('css', 'keyboard_event');
     addLocalFilesForPlayer('js', 'keyboard_event');
     addLocalFilesForPlayer('js', 'config', 'body');
+}
+
+async function createSimplePlayer({poster, qualitys}) {
+    let src = "";
+    for (quality of qualitys) {
+        if (quality.res == 1080) src = quality.link;
+    }
+    if (src == "") src = qualitys.slice(-1)[0].link
+
+    let response = await fetch(chrome.runtime.getURL("player/simplePlayer.html"));
+    let customHtml = await response.text();
+
+    customHtml = customHtml.replaceAll('poster=""', 'poster="' + poster + '"');
+    customHtml = customHtml.replaceAll('src=""', 'src="' + src + '"');
+    document.open();
+    document.write(customHtml);
+    document.close();
 }
 
 function addLocalFilesForPlayer(type, name, where = "head") {
@@ -57,16 +74,16 @@ function addLocalFilesForPlayer(type, name, where = "head") {
         script.src = scriptPath;
         script.type = "text/javascript";
         script.charset = "UTF-8";
+        script.onload = function () {
+            console.log(`${name}.js loaded successfully`);
+        };
+        script.onerror = function () {
+            console.error(`Failed to load ${name}.js`);
+        };
         if (where == "head") {
             document.head.appendChild(script);
         } else {
             document.body.appendChild(script);
         }
     }
-}
-
-function decodeHtml(html) {
-    var txt = document.createElement("textarea");
-    txt.innerHTML = html;
-    return txt.value;
 }

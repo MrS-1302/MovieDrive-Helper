@@ -9,11 +9,15 @@
     "contextMenus",
     "downloads"
   ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
   "host_permissions": [
     "*://*.moviedrive.hu/*",
     "*://*.videa.hu/player*",
     "*://vk.com/video_ext.php?*",
-    "*://ebd.cda.pl/*"
+    "*://ebd.cda.pl/*",
+    "*://ok.ru/videoembed/*"
   ],
   "web_accessible_resources": [
     {
@@ -37,6 +41,12 @@
     {
       "matches": ["*://ebd.cda.pl/*"],
       "js": ["helper/forParsers.js","parsers/cda.js"],
+      "all_frames": true,
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["*://ok.ru/videoembed/*"],
+      "js": ["helper/forParsers.js", "parsers/okru.js"],
       "all_frames": true,
       "run_at": "document_start"
     }
