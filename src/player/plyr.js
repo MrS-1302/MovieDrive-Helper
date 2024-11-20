@@ -1,10 +1,7 @@
-console.log("helper_Plyr script betöltve");
-typeof navigator === "object" && (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-    typeof define === 'function' && define.amd ? define('helper_Plyr', factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.helper_Plyr = factory());
+console.log("Plyr script betöltve");
+(function (global, factory) {
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Plyr = factory());
 })(this, (function () { 'use strict';
-  console.log('asd 2')
     function _defineProperty$1(obj, key, value) {
       if (key in obj) {
         Object.defineProperty(obj, key, {
@@ -220,7 +217,6 @@ typeof navigator === "object" && (function (global, factory) {
     // ==========================================================================
     // Type checking utils
     // ==========================================================================
-    console.log('asd 3')
     const getConstructor = input => input !== null && typeof input !== 'undefined' ? input.constructor : null;
     const instanceOf = (input, constructor) => Boolean(input && constructor && input instanceof constructor);
     const isNullOrUndefined = input => input === null || typeof input === 'undefined';
@@ -7566,9 +7562,8 @@ typeof navigator === "object" && (function (global, factory) {
     // const globals = new WeakMap();
   
     // Plyr instance
-    class helper_Plyr {
+    class Plyr {
       constructor(target, options) {
-        console.log('asdf')
         _defineProperty$1(this, "play", () => {
           if (!is.function(this.media.play)) {
             return null;
@@ -7783,7 +7778,7 @@ typeof navigator === "object" && (function (global, factory) {
         }
   
         // Set config
-        this.config = extend({}, defaults, helper_Plyr.defaults, options || {}, (() => {
+        this.config = extend({}, defaults, Plyr.defaults, options || {}, (() => {
           try {
             return JSON.parse(this.media.getAttribute('data-plyr-config'));
           } catch (_) {
@@ -8689,13 +8684,12 @@ typeof navigator === "object" && (function (global, factory) {
         if (is.empty(targets)) {
           return null;
         }
-        return targets.map(t => new helper_Plyr(t, options));
+        return targets.map(t => new Plyr(t, options));
       }
     }
-    window.helper_Plyr = helper_Plyr;
-    helper_Plyr.defaults = cloneDeep(defaults);
-    return helper_Plyr;
+    window.Plyr = Plyr;
+    Plyr.defaults = cloneDeep(defaults);
+    return Plyr;
   
   }));
   //# sourceMappingURL=plyr.js.map
-  console.log('asd 4')

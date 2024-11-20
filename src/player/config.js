@@ -113,7 +113,7 @@ setTimeout(() => {
     };
     var poster=localStorage.getItem("helper_p");
 
-    const player = new helper_Plyr(video, playerOptions);
+    const player = new Plyr(video, playerOptions);
 
     player.source = {
         type: 'video',

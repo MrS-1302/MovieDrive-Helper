@@ -16,6 +16,6 @@ function getDatas() {
 document.addEventListener('DOMContentLoaded', async function () {
     if (document.referrer != '' && document.referrer.split("//")[1].split("/")[0] == hostDomain) {
         createLoadingScreen();
-        createSimplePlayer(await getDatas());
+        createPlayer(await getDatas());
     }
 });

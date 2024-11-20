@@ -2,8 +2,8 @@ var ctrlPressed=false;var shiftPressed=false;document.onkeydown=checkKeyDown;fun
 document.onkeyup=checkKeyUp;function checkKeyUp(e){e=e||window.event;if(e.ctrlKey)ctrlPressed=false;if(e.shiftKey)shiftPressed=false;};var video=document.getElementById("video");var seekTime=5
 var ido=300
 const adatok=[[0,0],[0,0],[0,0]]
-function skip(){player.forward(85);tekeresCount.innerHTML="85s »";tekeresCountParent.style.display="flex";setTimeout(gomb_vege,800);}
-function unskip(){player.rewind(85);tekeresCount.innerHTML="« 85s";tekeresCountParent.style.display="flex";setTimeout(gomb_vege,800);}
+function skip(){player.forward(60);tekeresCount.innerHTML="60s »";tekeresCountParent.style.display="flex";setTimeout(gomb_vege,800);}
+function unskip(){player.rewind(60);tekeresCount.innerHTML="« 60s";tekeresCountParent.style.display="flex";setTimeout(gomb_vege,800);}
 function clickChecker(szam){most=Date.now()
 if(most-adatok[szam][0]<=ido){adatok[szam][1]+=1
 if(szam==1&&adatok[szam][1]+1==2||szam==1&&adatok[szam][1]+1==1&&player.paused=="true"){player.togglePlay()}else if(szam==0||szam==2){tekeresCount.innerHTML=(szam==0?"« ":"")+adatok[szam][1]*seekTime+"s"+(szam==2?" »":"")
