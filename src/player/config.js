@@ -1,9 +1,6 @@
 setTimeout(() => {
     var video = document.getElementById("video");
     var seekTime = 5;
-
-    //document.addEventListener('DOMContentLoaded', async () => {
-        //clearInterval(interval);
     var playerOptions = {
         settings: [
             'quality',
@@ -41,7 +38,7 @@ setTimeout(() => {
             'settings',
             'pip',
             'airplay',
-            //'download',
+            'download',
             'fullscreen',
         ],
         i18n: {
@@ -132,8 +129,65 @@ setTimeout(() => {
         video.insertAdjacentHTML('afterend', "<div id='tekeresCountParent' class='tekeresCount'><span id='tekeresCount'>10s »</span></div>");
         var tekeresCount = document.getElementById("tekeresCount");
         var tekeresCountParent = document.getElementById("tekeresCountParent");
+
+        document.querySelector('.plyr__controls').insertAdjacentHTML('beforeend', "<div class='downloads haromelem' id='downloads'></div>");
+
+        player.on('controlshidden', event => {
+            showseek = 0;
+            if (document.getElementById('downloads').style.display == 'flex') {
+                 toggleDownloads();
+            }
+        });
     });
     window.player = player;
+    
+    function toggleDownloads() {
+        if (document.getElementById('downloads').style.display != 'flex') {
+            document.getElementById('downloads').style.display = 'flex';
+            document.querySelector('[data-plyr="download"]').style.backgroundColor = '#FFF';
+            document.querySelector('[data-plyr="download"]').style.color = '#4a5764';
+        } else {
+            document.getElementById('downloads').style.display = 'none';
+            document.querySelector('[data-plyr="download"]').style.removeProperty('background-color');
+            document.querySelector('[data-plyr="download"]').style.removeProperty('color');
+        }
+    }
+    
+    document.body.onclick = function (event) {
+        let text = event.target.classList;
+        let van = false;
+        for (c of text) {
+            if (c == 'viddl') van = true;
+        }
+        if (document.getElementById('downloads').style.display == 'flex' && !van) toggleDownloads();
+    }
+    
+    document.querySelector('[data-plyr="download"]').removeAttribute('download');
+    document.querySelector('[data-plyr="download"]').removeAttribute('target');
+    document.querySelector('[data-plyr="download"]').classList.add('viddl');
+    let marvanletoltesgomb = false;
+    document.querySelector('[data-plyr="download"]').onclick = async function() {
+        document.querySelector('[data-plyr="download"]').removeAttribute('href');
+        if (!marvanletoltesgomb) {
+            qualitys = JSON.parse(localStorage.getItem("helper_q"));
+            if (qualitys.length != 0) {
+                for (i = qualitys.length - 1; i >= 0; i--) {
+                    btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'plyr__control plyr__control2';
+                    btn.style.padding = '5px 20px';
+                    btn.innerHTML = qualitys[i].size + 'p';
+                    btn.value = qualitys[i].size;
+                    btn.onclick = async function() {
+                        window.open(document.querySelector("source[size='"+this.value+"']").src, '_blank');
+                    };
+                    document.getElementById('downloads').appendChild(btn);
+                }
+            }
+            marvanletoltesgomb = true;
+        }
+        toggleDownloads();
+    };
 
     document.getElementById('loadingScreen').remove();
 }, 1000);
