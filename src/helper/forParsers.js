@@ -28,6 +28,7 @@ async function createPlayer({poster, qualitys}) {
     let customHtml = await response.text();
 
     customHtml = customHtml.replaceAll('poster=""', 'poster="' + poster + '"');
+    customHtml = customHtml.replaceAll('src=""', 'src="' + chrome.runtime.getURL("player/loading.gif") + '"');
     document.open();
     document.write(customHtml);
     document.close();

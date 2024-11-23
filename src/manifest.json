@@ -18,7 +18,8 @@
     "*://vk.com/video_ext.php?*",
     "*://ebd.cda.pl/*",
     "*://ok.ru/videoembed/*",
-    "*://rumble.com/*"
+    "*://rumble.com/*",
+    "*://embed.indavideo.hu/*"
   ],
   "web_accessible_resources": [
     {
@@ -54,6 +55,12 @@
     {
       "matches": ["*://rumble.com/*"],
       "js": ["helper/forParsers.js", "parsers/rumble.js"],
+      "all_frames": true,
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["*://embed.indavideo.hu/*"],
+      "js": ["helper/forParsers.js",  "parsers/inda.js"],
       "all_frames": true,
       "run_at": "document_start"
     }

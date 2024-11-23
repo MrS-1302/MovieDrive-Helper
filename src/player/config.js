@@ -135,4 +135,5 @@ setTimeout(() => {
     });
     window.player = player;
 
+    document.getElementById('loadingScreen').remove();
 }, 1000);
