@@ -8,7 +8,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (('v' + version) == content.name) {
         document.querySelector('div').innerHTML = 'Nem érhető el frissítés.';
+        chrome.action.setBadgeText({text: ''});
     } else {
         document.querySelector('div').innerHTML = 'Ez nem a legfrissebb verzió.<br>Töltsd le itt: <a href="' + content.assets[0].browser_download_url + '" target="_blank">' + content.name + '</a>';
+        chrome.action.setBadgeText({text: '!'});
     }
 });
