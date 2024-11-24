@@ -2,13 +2,22 @@
   "name": "MovieDrive Helper",
   "description": "Próbáltam használni az oldalt de egy szar az egész.. Bocsi Black :D ",
   "manifest_version": 3,
-  "version": "0.0.9",
+  "version": "0.1.0",
   "author": "Mr.S",
   "permissions": [
     "storage",
     "contextMenus",
-    "downloads"
+    "downloads",
+    "alarms",
+    "activeTab"
   ],
+  "background": {
+    "service_worker": "popup/bg.js"
+  },
+  "action": {
+    "default_popup": "popup/index.html",
+    "default_icon": "popup/favicon-32x32.png"
+  },
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'"
   },
