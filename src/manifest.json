@@ -1,15 +1,18 @@
 {
   "name": "MovieDrive Helper",
-  "description": "Próbáltam használni az oldalt de egy szar az egész.. Bocsi Black :D ",
+  "description": "A magyar MovieDrive oldalhoz egy kiegészítő, hogy visszaszerezd az egyedi lejátszót.",
   "manifest_version": 3,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Mr.S",
+  "icons": {
+    "32": "popup/favicon-32x32.png",
+    "128": "popup/favicon-128x128.png"
+  },
+  "host_permissions": [
+    "https://*.moviedrive.hu/*"
+  ],
   "permissions": [
-    "storage",
-    "contextMenus",
-    "downloads",
-    "alarms",
-    "activeTab"
+    "alarms"
   ],
   "background": {
     "service_worker": "popup/bg.js"
@@ -21,15 +24,6 @@
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'"
   },
-  "host_permissions": [
-    "*://*.moviedrive.hu/*",
-    "*://*.videa.hu/player*",
-    "*://vk.com/video_ext.php?*",
-    "*://ebd.cda.pl/*",
-    "*://ok.ru/videoembed/*",
-    "*://rumble.com/*",
-    "*://embed.indavideo.hu/*"
-  ],
   "web_accessible_resources": [
     {
       "resources": ["player/*"],
@@ -38,37 +32,37 @@
   ],
   "content_scripts": [
     {
-        "matches": ["*://*.videa.hu/player?*"],
+        "matches": ["https://videa.hu/player?*"],
         "js": ["helper/forParsers.js","parsers/videa.js"],
         "all_frames": true,
         "run_at": "document_start"
     },
     {
-      "matches": ["*://vk.com/video_ext.php?*"],
+      "matches": ["https://vk.com/video_ext.php?*"],
       "js": ["helper/forParsers.js","parsers/vk.js"],
       "all_frames": true,
       "run_at": "document_start"
     },
     {
-      "matches": ["*://ebd.cda.pl/*"],
+      "matches": ["https://ebd.cda.pl/*"],
       "js": ["helper/forParsers.js","parsers/cda.js"],
       "all_frames": true,
       "run_at": "document_start"
     },
     {
-      "matches": ["*://ok.ru/videoembed/*"],
+      "matches": ["https://ok.ru/videoembed/*"],
       "js": ["helper/forParsers.js", "parsers/okru.js"],
       "all_frames": true,
       "run_at": "document_start"
     },
     {
-      "matches": ["*://rumble.com/*"],
+      "matches": ["https://rumble.com/*"],
       "js": ["helper/forParsers.js", "parsers/rumble.js"],
       "all_frames": true,
       "run_at": "document_start"
     },
     {
-      "matches": ["*://embed.indavideo.hu/*"],
+      "matches": ["https://embed.indavideo.hu/*"],
       "js": ["helper/forParsers.js",  "parsers/inda.js"],
       "all_frames": true,
       "run_at": "document_start"
