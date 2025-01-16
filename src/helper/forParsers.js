@@ -32,42 +32,11 @@ async function createPlayer({poster, qualitys}) {
     document.open();
     document.write(customHtml);
     document.close();
-    addLocalFilesForPlayer('js', 'jquery.min');
-    addLocalFilesForPlayer('js', 'plyr');
-    addLocalFilesForPlayer('css', 'player2');
-    addLocalFilesForPlayer('css', 'adplyrfull.v2');
-    addLocalFilesForPlayer('css', 'keyboard_event');
-    addLocalFilesForPlayer('js', 'keyboard_event');
-    addLocalFilesForPlayer('js', 'config', 'body');
-}
-
-function addLocalFilesForPlayer(type, name, where = "head") {
-    if (type == 'css') {
-        let cssPath = chrome.runtime.getURL("player/" + name + ".css");
-        let link = document.createElement("link");
-        link.href = cssPath;
-        link.rel = "stylesheet";
-        if (where == "head") {
-            document.head.appendChild(link);
-        } else {
-            document.body.appendChild(link);
-        }
-    } else {
-        let scriptPath = chrome.runtime.getURL("player/" + name + ".js");
-        let script = document.createElement("script");
-        script.src = scriptPath;
-        script.type = "text/javascript";
-        script.charset = "UTF-8";
-        script.onload = function () {
-            console.log(`${name}.js loaded successfully`);
-        };
-        script.onerror = function () {
-            console.error(`Failed to load ${name}.js`);
-        };
-        if (where == "head") {
-            document.head.appendChild(script);
-        } else {
-            document.body.appendChild(script);
-        }
-    }
+    injectLocalFile('js', 'player/jquery.min');
+    injectLocalFile('js', 'player/plyr');
+    injectLocalFile('css', 'player/player2');
+    injectLocalFile('css', 'player/adplyrfull.v2');
+    injectLocalFile('css', 'player/keyboard_event');
+    injectLocalFile('js', 'player/keyboard_event');
+    injectLocalFile('js', 'player/config', 'body');
 }

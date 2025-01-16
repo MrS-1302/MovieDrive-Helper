@@ -1,6 +1,6 @@
 {
   "name": "MovieDrive Helper",
-  "description": "A magyar MovieDrive oldalhoz egy kiegészítő, hogy visszaszerezd az egyedi lejátszót.",
+  "description": "A magyar MovieDrive oldalhoz egy kiegészítő, hogy visszaszerezd az egyedi lejátszót sok más új, kisegítő funkció mellett.",
   "manifest_version": 3,
   "version": "0.1.1",
   "author": "Mr.S",
@@ -26,44 +26,50 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["player/*"],
+      "resources": ["*"],
       "matches": ["<all_urls>"]
     }
   ],
   "content_scripts": [
     {
+      "matches": ["https://moviedrive.hu/sorozat/*"],
+      "js": ["helper/injection.js","onSite/injectionManager.js"],
+      "all_frames": false,
+      "run_at": "document_start"
+    },
+    {
         "matches": ["https://videa.hu/player?*"],
-        "js": ["helper/forParsers.js","parsers/videa.js"],
+        "js": ["helper/injection.js","helper/forParsers.js","parsers/videa.js"],
         "all_frames": true,
         "run_at": "document_start"
     },
     {
       "matches": ["https://vk.com/video_ext.php?*"],
-      "js": ["helper/forParsers.js","parsers/vk.js"],
+      "js": ["helper/injection.js","helper/forParsers.js","parsers/vk.js"],
       "all_frames": true,
       "run_at": "document_start"
     },
     {
       "matches": ["https://ebd.cda.pl/*"],
-      "js": ["helper/forParsers.js","parsers/cda.js"],
+      "js": ["helper/injection.js","helper/forParsers.js","parsers/cda.js"],
       "all_frames": true,
       "run_at": "document_start"
     },
     {
       "matches": ["https://ok.ru/videoembed/*"],
-      "js": ["helper/forParsers.js", "parsers/okru.js"],
+      "js": ["helper/injection.js","helper/forParsers.js", "parsers/okru.js"],
       "all_frames": true,
       "run_at": "document_start"
     },
     {
       "matches": ["https://rumble.com/*"],
-      "js": ["helper/forParsers.js", "parsers/rumble.js"],
+      "js": ["helper/injection.js","helper/forParsers.js", "parsers/rumble.js"],
       "all_frames": true,
       "run_at": "document_start"
     },
     {
       "matches": ["https://embed.indavideo.hu/*"],
-      "js": ["helper/forParsers.js",  "parsers/inda.js"],
+      "js": ["helper/injection.js","helper/forParsers.js",  "parsers/inda.js"],
       "all_frames": true,
       "run_at": "document_start"
     }
