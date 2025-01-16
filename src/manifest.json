@@ -2,7 +2,7 @@
   "name": "MovieDrive Helper",
   "description": "A magyar MovieDrive oldalhoz egy kiegészítő, hogy visszaszerezd az egyedi lejátszót sok más új, kisegítő funkció mellett.",
   "manifest_version": 3,
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "Mr.S",
   "icons": {
     "32": "popup/favicon-32x32.png",
@@ -12,7 +12,8 @@
     "https://*.moviedrive.hu/*"
   ],
   "permissions": [
-    "alarms"
+    "alarms",
+    "contextMenus"
   ],
   "background": {
     "service_worker": "popup/bg.js"

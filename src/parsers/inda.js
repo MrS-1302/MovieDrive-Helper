@@ -16,7 +16,7 @@ function getDatas() {
 }
 
 document.addEventListener('DOMContentLoaded', async function () {
-    if (document.referrer != '' && document.referrer.split("//")[1].split("/")[0] == hostDomain) {
+    if (document.referrer != '' && document.referrer.split("//")[1].split("/")[0] == hostDomain && await isEnabled()) {
         console.log(document.location.host);
         createLoadingScreen();
         let interval = setInterval( async function () {

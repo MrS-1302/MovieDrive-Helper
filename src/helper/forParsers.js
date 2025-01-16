@@ -40,3 +40,11 @@ async function createPlayer({poster, qualitys}) {
     injectLocalFile('js', 'player/keyboard_event');
     injectLocalFile('js', 'player/config', 'body');
 }
+
+async function isEnabled() {
+    return new Promise(async (resolve) => {
+        chrome.runtime.sendMessage({ action: "getIsEnabled" }, (response) => {
+            resolve(response.isEnabled);
+        });
+    });
+}
