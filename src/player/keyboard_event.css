@@ -1,1 +1,46 @@
-.tekeresCount{background-color:transparent;width:100%;height:100%;position:absolute;top:0;left:0;z-index:0;text-align:center;display:none}.tekeresCount span{margin:auto;font-size:2rem;margin-top:20px;background-color:rgba(59,59,59,.5);color:#fff;padding:0 20px;border-radius:5px;display:block}.vissza,.kozep,.elore{position:absolute;top:0;height:calc(100% - 50px);background-color:rgb(175,175,175,0);display:block;z-index:2}.vissza{left:0;width:33%}.kozep{left:33%;width:34%}.elore{right:0;width:33%}*{user-select:none}
+.tekeresCount {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    text-align: center;
+    display: none;
+}
+.tekeresCount span {
+    margin: auto;
+    font-size: 2rem;
+    margin-top: 20px;
+    background-color: rgba(59, 59, 59, 0.5);
+    color: #fff;
+    padding: 0 20px;
+    border-radius: 5px;
+    display: block;
+}
+.vissza,
+.kozep,
+.elore {
+    position: absolute;
+    top: 0;
+    height: calc(100% - 50px);
+    background-color: rgb(175, 175, 175, 0);
+    display: block;
+    z-index: 2;
+}
+.vissza {
+    left: 0;
+    width: 33%;
+}
+.kozep {
+    left: 33%;
+    width: 34%;
+}
+.elore {
+    right: 0;
+    width: 33%;
+}
+* {
+    user-select: none;
+}

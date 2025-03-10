@@ -120,12 +120,12 @@ setTimeout(() => {
 
 
     Array.from(document.querySelectorAll('.plyr video')).forEach(video => {
-        /* if (getDevice() == "mobile") {
+        if (getDevice() == "mobile") {
             video.insertAdjacentHTML('afterend', "<div class='vissza' onclick='clickChecker(0)'></div>");
             video.insertAdjacentHTML('afterend', "<div class='kozep' onclick='clickChecker(1)'></div>");
             video.insertAdjacentHTML('afterend', "<div class='elore' onclick='clickChecker(2)'></div>");
             $("*").dblclick(false);
-        } */
+        }
         video.insertAdjacentHTML('afterend', "<div id='tekeresCountParent' class='tekeresCount'><span id='tekeresCount'>10s »</span></div>");
         var tekeresCount = document.getElementById("tekeresCount");
         var tekeresCountParent = document.getElementById("tekeresCountParent");

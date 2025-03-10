@@ -6,7 +6,7 @@ function getDatas() {
         const resolutions = [];
 
         for (qualityName of Object.keys(qualities)) {
-            const rawResponse = await fetch('https://www.cda.pl/', {
+            const rawResponse = await fetch('https://m.cda.pl/', {
                 method: 'POST',
                 headers: {
                   'Accept': 'application/json',
